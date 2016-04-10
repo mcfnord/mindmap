@@ -44,11 +44,8 @@ namespace UpdatePPY
     class UpdatePPY
     {
         // Fields
-        public static NpgsqlConnection DBConnection = new NpgsqlConnection(
-            //Registry.GetValue(@"HKEY_CURRENT_USER\Software\MindMap", "PostgreInitString", null).ToString());
-            "Database=mindmap;Server=127.0.0.1;Port=5432;User Id=postgres;Password=pwd;");
+        public static NpgsqlConnection DBConnection ;
         public static DateTime TwoK = new DateTime(0x7d0, 1, 1);
-
 
         private static void Main(string[] args)
         {
@@ -57,6 +54,10 @@ namespace UpdatePPY
                 Console.WriteLine("FUCK YOU THE CLOCK IS WRONG.");
                 return;
             }
+
+            DBConnection = new NpgsqlConnection(
+                Registry.GetValue(@"HKEY_CURRENT_USER\Software\MindMap", "PostgreInitString", null).ToString());
+            //             "Database=mindmap;Server=127.0.0.1;Port=5432;User Id=postgres;Password=pwd;");
 
             DBConnection.Open();
             int today = DateTime.Now.Subtract(TwoK).Days;
@@ -101,7 +102,7 @@ namespace UpdatePPY
                     list.Add(reader.GetString(0));
                 }
             }
-            reader.Close();
+           reader.Close();
 
             Console.WriteLine("I'd really like to foaf this many users: " + list.Count);
 
