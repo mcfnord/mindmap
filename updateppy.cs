@@ -118,7 +118,16 @@ namespace UpdatePPY
                 {
                     today = DateTime.Now.Subtract(TwoK).Days;
                     NpgsqlCommand command2 = new NpgsqlCommand(string.Format("select sampleday, numposts from nameidmap where name='{0}'", name), DBConnection);
-                    NpgsqlDataReader reader2 = command2.ExecuteReader();
+
+                    TRY_DB_AGAIN:
+                    NpgsqlDataReader reader2 = null;
+                    try {
+                        reader2 = command2.ExecuteReader();
+                    }
+                    catch (Exception)
+                    {
+                        goto TRY_DB_AGAIN;
+                    }
                     reader2.Read();
                     int dayOfLastSample = reader2.GetInt16(0);
                     int numPostsAtLastSample = reader2.GetInt32(1);
