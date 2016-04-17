@@ -34,7 +34,7 @@ class TCliquesClass //  : DB
             request.ContentType = "application/xml";
             request.AllowWriteStreamBuffering = true;
             request.UserAgent = "FlockToo";
-            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes("mcfnord:n00dleplex")));
+            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes("mcfnord:oldpwd")));
             request.ServicePoint.Expect100Continue = false;
 
             HttpWebResponse response = null;
@@ -146,7 +146,7 @@ class TCliquesClass //  : DB
         request.ContentType = "application/xml";
         request.AllowWriteStreamBuffering = true;
         request.UserAgent = "FlockToo";
-        request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes("mcfnord:n00dleplex")));
+        request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes("mcfnord:oldpwd")));
         request.ServicePoint.Expect100Continue = false;
 
     HIT_AGAIN_JERK:

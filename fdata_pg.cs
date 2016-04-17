@@ -1145,7 +1145,7 @@ public class FData : MMDB
                                             new XElement("value", new XElement("string", "ljloner"))),
                                         new XElement("member",
                                             new XElement("name", "password"),
-                                            new XElement("value", new XElement("string", "n00dleplex"))),
+                                            new XElement("value", new XElement("string", Registry.GetValue("HKEY_CURRENT_USER\\Software\\MindMap", "LJLonerPwd", null).ToString()))),
                                         new XElement("member",
                                             new XElement("name", "add"),
                                             new XElement("value", 

@@ -6,6 +6,8 @@ using System.Xml.Linq;
 using System.Net;
 using System.IO;
 using Npgsql;
+using Microsoft.Win32; // for registry pwd storage
+
 
 class Radar2010
 {
@@ -416,7 +418,7 @@ class Radar2010
 //                                            new XElement("value", new XElement("string", "mcfnord"))),
                                         new XElement("member",
                                             new XElement("name", "password"),
-                                            new XElement("value", new XElement("string", "n00dleplex"))),
+                                            new XElement("value", new XElement("string", Registry.GetValue("HKEY_CURRENT_USER\\Software\\MindMap", "LJFinderPwd", null).ToString()))),
                                         new XElement("member",
                                             new XElement("name", "subject"),
                                             new XElement("value", new XElement("string", "New LJs and your MindMap at " + url ))),
@@ -480,7 +482,7 @@ class Radar2010
                                             new XElement("value", new XElement("string", "ljfound"))),
                                         new XElement("member",
                                             new XElement("name", "password"),
-                                            new XElement("value", new XElement("string", "n00dzzz"))),
+                                            new XElement("value", new XElement("string", Registry.GetValue("HKEY_CURRENT_USER\\Software\\MindMap", "LJFoundPwd", null).ToString()))),
                                         new XElement("member",
                                             new XElement("name", "ver"),
                                             new XElement("value",
@@ -566,7 +568,7 @@ class Radar2010
                                             new XElement("value", new XElement("string", "ljfound"))),
                                         new XElement("member",
                                             new XElement("name", "password"),
-                                            new XElement("value", new XElement("string", "n00dzzz"))),
+                                            new XElement("value", new XElement("string", Registry.GetValue("HKEY_CURRENT_USER\\Software\\MindMap", "LJFoundPwd", null).ToString()))),
                                         new XElement("member",
                                             new XElement("name", "subject"),
                                             new XElement("value", new XElement("string", subject))),
