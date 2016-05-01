@@ -49,7 +49,7 @@ namespace UpdatePPY
 
         private static void Main(string[] args)
         {
-            if (DateTime.Now.Year < 2012)
+            if (DateTime.Now.Year < 2016)
             {
                 Console.WriteLine("FUCK YOU THE CLOCK IS WRONG.");
                 return;
